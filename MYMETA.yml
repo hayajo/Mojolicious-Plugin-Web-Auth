@@ -1,0 +1,26 @@
+---
+abstract: 'Authentication plugin for Mojolicious'
+author:
+  - unknown
+build_requires:
+  ExtUtils::MakeMaker: 6.36
+  Test::More: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.36
+dynamic_config: 0
+generated_by: 'Module::Install version 1.06, CPAN::Meta::Converter version 2.112150'
+license: unknown
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Mojolicious-Plugin-Web-Auth
+no_index:
+  directory:
+    - inc
+    - t
+    - xt
+requires:
+  Mojolicious: 0
+  Net::Twitter::Lite: 0
+  WebService::Dropbox: 0
+version: 0.01

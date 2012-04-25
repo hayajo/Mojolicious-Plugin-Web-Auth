@@ -1,0 +1,70 @@
+#!/usr/bin/env perl
+use Mojolicious::Lite;
+use Config::Pit;
+
+my $site = 'Google';
+helper site => sub { $site };
+
+my $pit = pit_get(
+    lc($site),
+    require => {
+        key    => 'Google Client ID',
+        secret => 'Google Client secret',
+    }
+);
+
+plugin 'Mojolicious::Plugin::Web::Auth',
+    module      => ucfirst( lc $site ),
+    key         => $pit->{key},
+    secret      => $pit->{secret},
+    on_finished => sub {
+        my ($c, $access_token, $account_info) = @_;
+        $c->session('access_token' => $access_token);
+        $c->session('account_info' => $account_info);
+        return $c->redirect_to('index');
+    };
+
+get '/' => sub {
+    my ($c) = @_;
+    unless ( $c->session('account_info') ) {
+        return $c->redirect_to('login');
+    }
+} => 'index';
+
+any [qw/get post/] => '/login' => sub {
+    my ($c) = @_;
+    if (uc $c->req->method eq 'POST') {
+        return $c->redirect_to( sprintf( "/auth/%s/authenticate", lc $site ) );
+    }
+} => 'login';
+
+post '/logout' => sub {
+    my ($c) = @_;
+    $c->session( expires => 1 );
+    $c->redirect_to('index');
+} => 'logout';
+
+app->start;
+
+__DATA__
+
+@@ index.html.ep
+% layout 'default';
+Hello <%= session('account_info')->{displayName} %>@<%= site %>
+<form method="post" action="/logout">
+<button type="submit">Logout</button>
+</form>
+
+@@ login.html.ep
+% layout 'default';
+<form method="post">
+<button type="submit">Login with <%= site %></button>
+</form>
+
+@@ layouts/default.html.ep
+% title 'Auth' . ucfirst(lc site);
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body><%= content %></body>
+</html>

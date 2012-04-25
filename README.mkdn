@@ -1,0 +1,52 @@
+# NAME
+
+Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
+
+# SYNOPSIS
+
+    # Mojolicious
+    $self->plugin('Web::Auth'
+        module      => 'Twitter',
+        key         => 'Twitter consumer key',
+        secret      => 'Twitter consumer secret',
+        on_finished => sub {
+            my ( $c, $access_token, $access_secret ) = @_;
+            ...
+        },
+    );
+
+    # Mojolicious::Lite
+    plugin 'Web::Auth',
+        module      => 'Twitter',
+        key         => 'Twitter consumer key',
+        secret      => 'Twitter consumer secret',
+        on_finished => sub {
+            my ( $c, $access_token, $access_secret ) = @_;
+            ...
+        };
+
+
+
+    ### default authentication endpoint: /auth/{moniker}/authenticate
+    # e.g.)
+    # /auth/twitter/authenticate
+    # /auth/facebook/authenticate
+
+# DESCRIPTION
+
+[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) is authentication plugin for <Mojolicious>.
+
+# METHODS
+
+[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) inherits all methods from
+[Mojolicious::Plugin](http://search.cpan.org/perldoc?Mojolicious::Plugin) and implements the following new ones.
+
+## `register`
+
+    $plugin->register;
+
+Register plugin in [Mojolicious](http://search.cpan.org/perldoc?Mojolicious) application.
+
+# SEE ALSO
+
+[Mojolicious](http://search.cpan.org/perldoc?Mojolicious), [Mojolicious::Guides](http://search.cpan.org/perldoc?Mojolicious::Guides), [http://mojolicio.us](http://mojolicio.us), [Amon2::Auth](http://search.cpan.org/perldoc?Amon2::Auth).
