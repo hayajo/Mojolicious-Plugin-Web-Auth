@@ -90,21 +90,54 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Plugin::Web::Auth> is authentication plugin for <Mojolicious>.
+L<Mojolicious::Plugin::Web::Auth> is authentication plugin for L<Mojolicious>.
 
 =head1 METHODS
 
-L<Mojolicious::Plugin::Web::Auth> inherits all methods from
-L<Mojolicious::Plugin> and implements the following new ones.
+L<Mojolicious::Plugin::Directory> inherits all methods from L<Mojolicious::Plugin>.
 
-=head2 C<register>
+=head1 OPTIONS
 
-  $plugin->register;
+L<Mojolicious::Plugin::Web::Auth> supports the following options.
 
-Register plugin in L<Mojolicious> application.
+=head2 C<module>
+
+This is a module name for authentication plugins.
+
+Dropbox, Facebook, Github, Google, Twitter.
+
+=head2 C<key>
+
+consumer key
+
+=head2 C<key>
+
+consumer secret
+
+=head2 C<on_finished>
+
+  # Mojolicious::Lite
+  plugin 'Web::Auth',
+      module      => 'Twitter',
+      key         => 'Twitter consumer key',
+      secret      => 'Twitter consumer secret',
+      on_finished => sub {
+          my ( $c, $access_token, $access_secret ) = @_;
+          ...
+      };
+
+This is a callback when authentication was finished.
+
+=head2 C<on_error>
+
+This is a callback when authentication was errored.
+
+=head1 AUTHOR
+
+hayajo E<lt>hayajo@cpan.orgE<gt>
 
 =head1 SEE ALSO
 
-L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicio.us>, L<Amon2::Auth>.
+L<Mojolicious>, L<Amon2::Auth>
 
 =cut
