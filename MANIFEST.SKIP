@@ -1,6 +1,7 @@
 \bRCS\b
 \bCVS\b
 ^MANIFEST\.
+^MYMETA\.
 ^Makefile$
 ~$
 ^#
@@ -19,4 +20,9 @@
 ^\.shipit$
 ^\.git/
 \.sw[po]$
+^local/
+^junk/
+^\.carton/
+^carton.lock$
+^.gitignore$
 README.pod
