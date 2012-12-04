@@ -1,6 +1,9 @@
 use inc::Module::Install;
+use Module::Install::Repository;
+use Module::Install::ReadmePodFromPod;
 name 'Mojolicious-Plugin-Web-Auth';
 all_from 'lib/Mojolicious/Plugin/Web/Auth.pm';
+readme_pod_from 'lib/Mojolicious/Plugin/Web/Auth.pm';
 
 requires 'Mojolicious';
 

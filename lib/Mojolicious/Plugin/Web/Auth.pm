@@ -110,7 +110,7 @@ Dropbox, Facebook, Github, Google, Twitter.
 
 consumer key
 
-=head2 C<key>
+=head2 C<secret>
 
 consumer secret
 
