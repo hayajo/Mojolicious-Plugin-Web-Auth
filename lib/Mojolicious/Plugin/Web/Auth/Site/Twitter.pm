@@ -1,6 +1,7 @@
 package Mojolicious::Plugin::Web::Auth::Site::Twitter;
 
 use Mojo::Base -base;
+use LWP::Protocol::Net::Curl;
 use Net::Twitter::Lite;
 
 has 'key';
@@ -14,6 +15,7 @@ sub _nt {
     my $nt = Net::Twitter::Lite->new(
         consumer_key    => $self->key,
         consumer_secret => $self->secret,
+        legacy_lists_api => 0,
     );
     return $nt;
 }
