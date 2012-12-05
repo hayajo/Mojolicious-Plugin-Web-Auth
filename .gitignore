@@ -13,7 +13,7 @@ MANIFEST.bak
 carton.lock
 local/
 *~
-junk/
+!junk/
 MYMETA.json
 MYMETA.yml
 *.bak
