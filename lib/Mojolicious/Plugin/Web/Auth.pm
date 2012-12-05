@@ -43,9 +43,6 @@ sub register {
                 },
             } );
         }
-        else {
-            return undef;
-        }
     } );
 
     return $self;

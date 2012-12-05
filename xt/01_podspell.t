@@ -8,3 +8,8 @@ __DATA__
 hayajo
 hayajo@cpan.org
 Mojolicious::Plugin::Web::Auth
+Dropbox
+Facebook
+Github
+errored
+plugins
