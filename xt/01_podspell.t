@@ -5,6 +5,6 @@ add_stopwords(map { split /[\s\:\-]/ } <DATA>);
 $ENV{LANG} = 'C';
 all_pod_files_spelling_ok('lib');
 __DATA__
-hayato imai
-hayato.imai@global-netcore.jp
+hayajo
+hayajo@cpan.org
 Mojolicious::Plugin::Web::Auth
