@@ -1,10 +1,9 @@
+package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
-
-package Mojolicious::Plugin::Web::Auth;
-use Mojo::Base 'Mojolicious::Plugin';
-
 our $VERSION = '0.01';
+
+use Mojo::Base 'Mojolicious::Plugin';
 
 sub register {
     my ( $self, $app, $args ) = @_;
