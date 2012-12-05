@@ -2,6 +2,8 @@
 use Mojolicious::Lite;
 use Config::Pit;
 
+print STDERR "[NOTICE] should be used in domains other than 'localhost' (e.g. local.example.com)\n";
+
 my $site = 'Google';
 helper site => sub { $site };
 
