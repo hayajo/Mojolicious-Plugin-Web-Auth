@@ -1,5 +1,5 @@
 use strict;
-use Test::More tests => 7;
+use Test::More tests => 8;
 
 BEGIN {
     use_ok $_ for qw/
@@ -10,5 +10,6 @@ BEGIN {
         Mojolicious::Plugin::Web::Auth::Site::Dropbox
         Mojolicious::Plugin::Web::Auth::Site::Github
         Mojolicious::Plugin::Web::Auth::Site::Google
+        Mojolicious::Plugin::Web::Auth::Site::Instagram
     /;
 }
