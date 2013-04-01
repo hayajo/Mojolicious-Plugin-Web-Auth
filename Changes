@@ -1,4 +1,8 @@
 Revision history for Perl extension Mojolicious::Plugin::Web::Auth
 
+0.02
+        - added  Mojolicious::Plugin::Web::Auth::Site::Instagram
+        - chanded to use Mojo::UserAgent::post with Mojolicious 3.85 or higher
+
 0.01
         - original version
