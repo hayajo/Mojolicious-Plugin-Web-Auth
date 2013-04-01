@@ -83,6 +83,10 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
   # e.g.)
   # /auth/twitter/authenticate
   # /auth/facebook/authenticate
+  ### default callback endpoint: /auth/{moniker}/callback
+  # e.g.)
+  # /auth/twitter/callback
+  # /auth/facebook/callback
 
 =head1 DESCRIPTION
 
