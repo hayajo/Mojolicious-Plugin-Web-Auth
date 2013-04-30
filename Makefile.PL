@@ -5,7 +5,6 @@ all_from 'lib/Mojolicious/Plugin/Web/Auth.pm';
 
 requires 'Mojolicious' => '3.02';
 requires 'Net::OAuth'  => '0.28';
-requires 'JSON'        => '2.53';
 
 tests 't/*.t';
 author_tests 'xt';
