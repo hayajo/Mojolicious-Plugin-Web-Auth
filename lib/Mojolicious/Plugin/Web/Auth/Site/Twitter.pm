@@ -49,5 +49,3 @@ sub callback {
 }
 
 1;
-
-__END__
