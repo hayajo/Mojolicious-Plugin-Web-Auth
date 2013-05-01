@@ -19,6 +19,7 @@ plugin 'Mojolicious::Plugin::Web::Auth',
     module      => ucfirst( lc $site ),
     key         => $pit->{key},
     secret      => $pit->{secret},
+    scope       => 'email,user_birthday',
     on_finished => sub {
         my ($c, $access_token, $account_info) = @_;
         $c->session('access_token' => $access_token);

@@ -18,10 +18,10 @@ plugin 'Mojolicious::Plugin::Web::Auth',
     key         => $pit->{key},
     secret      => $pit->{secret},
     on_finished => sub {
-        my ($c, $access_token, $access_secret, $account_info) = @_;
-        $c->session('access_token' => $access_token);
-        $c->session('access_secret' => $access_secret);
-        $c->session('account_info' => $account_info);
+        my ( $c, $access_token, $access_secret, $account_info ) = @_;
+        $c->session( 'access_token'  => $access_token );
+        $c->session( 'access_secret' => $access_secret );
+        $c->session( 'account_info' => { display_name => $account_info->{display_name} } );
         return $c->redirect_to('index');
     };
 
