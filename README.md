@@ -52,7 +52,7 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 
 This is a module name for authentication plugins.
 
-Dropbox, Facebook, Github, Google, Twitter.
+Dropbox, Facebook, Github, Google, Instagram, Twitter.
 
 ## `key`
 
