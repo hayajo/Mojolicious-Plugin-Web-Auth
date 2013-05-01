@@ -1,35 +1,21 @@
 package Mojolicious::Plugin::Web::Auth::OAuth2;
 
-use Mojo::Base -base;
-use Mojo::JSON;
+use Mojo::Base 'Mojolicious::Plugin::Web::Auth::Base';
+use Mojo::URL;
 use Mojo::Parameters;
-use Mojo::UserAgent;
 
-has 'key';
-has 'secret';
 has 'scope';
-has 'user_info';
-has 'authorize_url';
-has 'access_token_url';
-has 'user_info_url';
 has 'response_type';
-has moniker => sub { die 'override me' };
-
-sub _ua {
-    my $self = shift;
-    $self->{_ua} = Mojo::UserAgent->new( name => "Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION")
-        unless ($self->{_ua});
-    return $self->{_ua};
-}
 
 sub auth_uri {
-    my ($self, $c, $callback_uri) = @_;
+    my ( $self, $c, $callback_uri ) = @_;
+
     $callback_uri or die "Missing mandatory parameter: callback_uri";
 
     my $url = Mojo::URL->new( $self->authorize_url );
-    $url->query->param( client_id    => $self->key );
-    $url->query->param( redirect_uri => $callback_uri );
-    $url->query->param( scope        => $self->scope ) if ( defined $self->scope );
+    $url->query->param( client_id     => $self->key );
+    $url->query->param( redirect_uri  => $callback_uri );
+    $url->query->param( scope         => $self->scope ) if ( defined $self->scope );
     $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
 
     return $url->to_string;
@@ -37,6 +23,7 @@ sub auth_uri {
 
 sub callback {
     my ($self, $c, $callback) = @_;
+
     if (my $error_description = $c->req->param('error_description')) {
         return $callback->{on_error}->($error_description);
     }
@@ -62,9 +49,9 @@ sub callback {
     if ( my $err = $dat->{error} ) {
         return $callback->{on_error}->($err);
     }
+
     my $access_token = $dat->{access_token} or die "Cannot get a access_token";
     my @args = ($access_token);
-
     if ( $self->user_info ) {
         my $url = Mojo::URL->new( $self->user_info_url );
         $url->query->param( access_token => $access_token );
@@ -77,6 +64,16 @@ sub callback {
     return $callback->{on_finished}->(@args);
 }
 
+sub _ua {
+    my $self = shift;
+
+    $self->{_ua} = Mojo::UserAgent->new(
+        name => "Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION"
+    ) unless ( $self->{_ua} );
+
+    return $self->{_ua};
+}
+
 sub _response_to_hash {
     my ( $self, $res ) = @_;
     return ( $res->headers->content_type eq 'application/json' )
@@ -85,5 +82,3 @@ sub _response_to_hash {
 }
 
 1;
-
-__END__
