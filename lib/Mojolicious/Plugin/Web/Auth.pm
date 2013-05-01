@@ -114,6 +114,21 @@ consumer key
 
 consumer secret
 
+=head2 C<scope>
+
+optional. OAuth 2.0 only.
+
+  # Facebook
+  plugin 'Web::Auth',
+      module      => 'Facebook',
+      key         => 'Facebook App ID',
+      secret      => 'Facebook App Secret',
+      scope       => 'email,user_birthday',
+      on_finished => sub {
+          my ( $c, $access_token, $user_info ) = @_;
+          ...
+      };
+
 =head2 C<on_finished>
 
   # Mojolicious::Lite
@@ -122,11 +137,47 @@ consumer secret
       key         => 'Twitter consumer key',
       secret      => 'Twitter consumer secret',
       on_finished => sub {
-          my ( $c, $access_token, $access_secret ) = @_;
+          my ( $c, $access_token, $access_secret, $user_ino ) = @_;
           ...
       };
 
 This is a callback when authentication was finished.
+
+=head3 arguments
+
+=over 4
+
+=item * OAuth 1.0(A)
+
+Dropbox, Twitter, etc.
+
+=over 4
+
+=item Mojolicious::Controller
+
+=item access_token
+
+=item access_secret
+
+=item user_info ( enabled 'user_info' )
+
+=back
+
+=item * OAuth 2.0
+
+Facebook, Github, Google, Instagram, etc.
+
+=over 4
+
+=item Mojolicious::Controller
+
+=item access_token
+
+=item user_info ( enabled 'user_info' )
+
+=back
+
+=back
 
 =head2 C<on_error>
 
