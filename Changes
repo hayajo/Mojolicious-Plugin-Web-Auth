@@ -1,4 +1,6 @@
-Revision history for Perl extension Mojolicious::Plugin::Web::Auth
+Revision history for Mojolicious-Plugin-Web-Auth
+
+{{$NEXT}}
 
 0.02
         - added  Mojolicious::Plugin::Web::Auth::Site::Instagram
