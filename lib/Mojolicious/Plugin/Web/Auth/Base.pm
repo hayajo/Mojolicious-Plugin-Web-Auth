@@ -5,16 +5,10 @@ use Mojo::UserAgent;
 
 has 'key';
 has 'secret';
-# has 'scope';
-
 has 'user_info';
-
 has 'authorize_url';
 has 'access_token_url';
 has 'user_info_url';
-
-
-# has 'response_type';
 
 has moniker => sub { die 'override me' };
 
