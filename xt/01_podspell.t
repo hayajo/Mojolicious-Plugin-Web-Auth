@@ -8,8 +8,10 @@ __DATA__
 hayajo
 hayajo@cpan.org
 Mojolicious::Plugin::Web::Auth
+OAuth
 Dropbox
 Facebook
 Github
+Instagram
 errored
 plugins
