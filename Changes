@@ -2,6 +2,12 @@ Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
 
+0.03  2013-05-01 18:14:41 JST
+        - removed the dependancy of Net::Twitter::Lite
+        - removed the dependancy of WebService::Dropbox
+        - millaize
+        - updated the document
+
 0.02
         - added  Mojolicious::Plugin::Web::Auth::Site::Instagram
         - chanded to use Mojo::UserAgent::post with Mojolicious 3.85 or higher
