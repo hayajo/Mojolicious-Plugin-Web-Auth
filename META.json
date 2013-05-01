@@ -1,0 +1,69 @@
+{
+   "abstract" : "Authentication plugin for Mojolicious",
+   "author" : [
+      "hayajo <hayajo@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Mojolicious-Plugin-Web-Auth",
+   "no_index" : {
+      "directory" : [
+         "t",
+         "xt",
+         "inc",
+         "share",
+         "eg",
+         "examples"
+      ]
+   },
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "Module::Build::Tiny" : "0.019"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::Pod" : "1.41"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Mojolicious" : "3.02",
+            "Net::OAuth" : "0.28",
+            "perl" : "5.008005"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0.88"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth/issues"
+      },
+      "homepage" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git",
+         "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
+      }
+   },
+   "version" : "0.02",
+   "x_contributors" : [
+      "hayato imai <hayato.imai@global-netcore.jp>",
+      "hayato imai <hayato.imai@gmail.com>",
+      "hayato imai <imaiha@imaiha-dev.localdomain>"
+   ]
+}
+
