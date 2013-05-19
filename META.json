@@ -4,7 +4,7 @@
       "hayajo <hayajo@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.120921",
+   "generated_by" : "Dist::Milla version v1.0.2, Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
    "license" : [
       "perl_5"
    ],
@@ -36,6 +36,7 @@
       },
       "runtime" : {
          "requires" : {
+            "IO::Socket::SSL" : "1.77",
             "Mojolicious" : "3.02",
             "Net::OAuth" : "0.28",
             "perl" : "5.008005"
