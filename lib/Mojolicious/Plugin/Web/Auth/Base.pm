@@ -19,7 +19,7 @@ sub auth_uri {
 
 sub callback {
     my ($self, $c, $callback_uri) = @_;
-    "auth_uri() is not implemented";
+    "callback() is not implemented";
 }
 
 1;
