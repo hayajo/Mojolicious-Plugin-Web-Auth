@@ -60,7 +60,7 @@
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.03",
+   "version" : "0.04",
    "x_contributors" : [
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <hayato.imai@gmail.com>",

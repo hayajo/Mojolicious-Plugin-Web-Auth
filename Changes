@@ -1,6 +1,8 @@
 Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
+
+0.04  2013-05-30 09:03:44 JST
         - added the dependancy of IO::Socket::SSL
 
 0.03  2013-05-01 18:21:38 JST
