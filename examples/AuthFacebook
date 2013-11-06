@@ -1,4 +1,8 @@
 #!/usr/bin/env perl
+
+use FindBin;
+BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
+
 use Mojolicious::Lite;
 use Config::Pit;
 
