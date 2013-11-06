@@ -2,6 +2,9 @@ Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
 
+0.05  2013-11-06 10:23:09 JST
+        - fixed support for prefork server (Hypnotoad, Starman, Starlet, etc.)
+
 0.04  2013-05-30 09:03:44 JST
         - added the dependancy of IO::Socket::SSL
 
