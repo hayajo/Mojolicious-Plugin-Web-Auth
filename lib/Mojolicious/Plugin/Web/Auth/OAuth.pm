@@ -5,6 +5,7 @@ use Net::OAuth::Client;
 use Mojo::JSON;
 
 has 'request_token_url';
+has is_v1a => 0;
 
 sub auth_uri {
     my ( $self, $c, $callback_uri ) = @_;
@@ -21,7 +22,10 @@ sub callback {
         or return $callback->{on_error}->("Session error");
     my $request_verifier = $c->req->param('oauth_verifier');
 
-    my $access_token = $self->_client->get_access_token($request_token, $request_verifier);
+    my $client = $self->_client($c);
+    $client->is_v1a(1) if $self->is_v1a;;
+
+    my $access_token = $client->get_access_token($request_token, $request_verifier);
 
     my $token  = $access_token->token;
     my $secret = $access_token->token_secret;

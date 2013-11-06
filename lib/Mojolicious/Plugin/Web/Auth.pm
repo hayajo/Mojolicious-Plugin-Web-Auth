@@ -1,6 +1,8 @@
 package Mojolicious::Plugin::Web::Auth;
+
 use strict;
 use warnings;
+
 our $VERSION = '0.04';
 
 use Mojo::Base 'Mojolicious::Plugin';
@@ -11,7 +13,7 @@ sub register {
     my $klass  = join '::', __PACKAGE__, 'Site', $module;
     Mojo::Loader->load($klass);
 
-    my $moniker           = $klass->moniker;
+    my $moniker           = $klass->moniker();
     my $authenticate_path = delete $args->{authenticate_path} || "/auth/${moniker}/authenticate";
     my $callback_path     = delete $args->{callback_path}     || "/auth/${moniker}/callback";
 

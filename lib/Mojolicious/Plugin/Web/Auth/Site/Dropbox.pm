@@ -8,6 +8,6 @@ has authorize_url     => 'https://api.dropbox.com/1/oauth/authorize';
 has access_token_url  => 'https://api.dropbox.com/1/oauth/access_token';
 has user_info_url     => 'https://api.dropbox.com/1/account/info';
 
-has moniker => sub {'dropbox'};
+sub moniker {'dropbox'};
 
 1;
