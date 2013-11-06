@@ -8,6 +8,6 @@ has authorize_url    => 'https://accounts.google.com/o/oauth2/auth?response_type
 has access_token_url => 'https://accounts.google.com/o/oauth2/token';
 has user_info_url    => 'https://www.googleapis.com/plus/v1/people/me';
 
-has moniker => sub {'google'};
+sub moniker {'google'};
 
 1;

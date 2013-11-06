@@ -8,6 +8,6 @@ has access_token_url => 'https://api.instagram.com/oauth/access_token';
 has user_info_url    => 'https://api.instagram.com/v1/users/self';
 has response_type    => 'code';
 
-has moniker => sub {'instagram'};
+sub moniker {'instagram'};
 
 1;

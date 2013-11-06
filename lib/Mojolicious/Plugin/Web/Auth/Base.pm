@@ -10,7 +10,7 @@ has 'authorize_url';
 has 'access_token_url';
 has 'user_info_url';
 
-has moniker => sub { die 'override me' };
+sub moniker { die 'override me' };
 
 sub auth_uri {
     my ($self, $c, $callback_uri) = @_;
