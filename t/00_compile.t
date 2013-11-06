@@ -1,9 +1,10 @@
 use strict;
-use Test::More tests => 8;
+use Test::More tests => 9;
 
 BEGIN {
     use_ok $_ for qw/
         Mojolicious::Plugin::Web::Auth
+        Mojolicious::Plugin::Web::Auth::OAuth
         Mojolicious::Plugin::Web::Auth::OAuth2
         Mojolicious::Plugin::Web::Auth::Site::Twitter
         Mojolicious::Plugin::Web::Auth::Site::Facebook
