@@ -43,7 +43,7 @@ sub callback {
 
 sub _client {
     my ( $self, $c, $callback_uri ) = @_;
-    $self->{_oauth_client} ||= Net::OAuth::Client->new(
+    return Net::OAuth::Client->new(
         $self->key,
         $self->secret,
         request_token_path  => $self->request_token_url,
