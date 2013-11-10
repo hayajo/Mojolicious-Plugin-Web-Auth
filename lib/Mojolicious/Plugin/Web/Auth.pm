@@ -189,6 +189,15 @@ This is a callback when authentication was errored.
 
 hayajo E<lt>hayajo@cpan.orgE<gt>
 
+=head1 COPYRIGHT
+
+Copyright 2013- hayajo
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
 =head1 SEE ALSO
 
 L<Mojolicious>, L<Amon2::Auth>

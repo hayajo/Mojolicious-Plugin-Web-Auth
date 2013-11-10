@@ -118,6 +118,15 @@ This is a callback when authentication was errored.
 
 hayajo <hayajo@cpan.org>
 
+# COPYRIGHT
+
+Copyright 2013- hayajo
+
+# LICENSE
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
 # SEE ALSO
 
 [Mojolicious](http://search.cpan.org/perldoc?Mojolicious), [Amon2::Auth](http://search.cpan.org/perldoc?Amon2::Auth)
