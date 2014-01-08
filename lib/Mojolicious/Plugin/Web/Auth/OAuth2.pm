@@ -67,9 +67,11 @@ sub callback {
 sub _ua {
     my $self = shift;
 
-    $self->{_ua} = Mojo::UserAgent->new(
-        name => "Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION"
-    ) unless ( $self->{_ua} );
+    unless ( $self->{_ua} ) {
+        $self->{_ua} = Mojo::UserAgent->new();
+        $self->{_ua}->transactor->name("Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION");
+        $self->{_ua}->proxy->detect; # supports ENV proxies
+    }
 
     return $self->{_ua};
 }
