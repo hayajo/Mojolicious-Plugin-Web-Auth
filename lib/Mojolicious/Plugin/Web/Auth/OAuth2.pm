@@ -69,8 +69,17 @@ sub _ua {
 
     unless ( $self->{_ua} ) {
         $self->{_ua} = Mojo::UserAgent->new();
-        $self->{_ua}->transactor->name("Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION");
-        $self->{_ua}->proxy->detect; # supports ENV proxies
+
+        my $user_agent = "Mojolicious::Plugin::Web::Auth/$Mojolicious::Plugin::Web::Auth::VERSION";
+        if ($Mojolicious::VERSION >= 4.50) {
+            $self->{_ua}->transactor->name($user_agent);
+            $self->{_ua}->proxy->detect; # supports ENV proxies
+        } else {
+            # Mojo::UserAgent#name is deprecated from version 4.50
+            $self->{_ua}->name($user_agent);
+            # Mojo::UserAgent#detect_proxy is deprecated from version 4.50
+            $self->{_ua}->detect_proxy();
+        }
     }
 
     return $self->{_ua};
