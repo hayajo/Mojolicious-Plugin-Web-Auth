@@ -37,9 +37,9 @@ sub callback {
         grant_type    => 'authorization_code',
     };
 
-    my $tx = ( $Mojolicious::VERSION < 3.85)
-        ? $self->_ua->post_form( $self->access_token_url => $params ) # Mojo::UserAgent::post_form is deprecated from version 3.85
-        : $self->_ua->post( $self->access_token_url => form => $params );
+    my $tx = ( $Mojolicious::VERSION >= 3.85)
+        ? $self->_ua->post( $self->access_token_url => form => $params )
+        : $self->_ua->post_form( $self->access_token_url => $params ); # Mojo::UserAgent::post_form is deprecated from version 3.85
 
     (my $res = $tx->success ) or do {
         return $callback->{on_error}->( $tx->res->body );
