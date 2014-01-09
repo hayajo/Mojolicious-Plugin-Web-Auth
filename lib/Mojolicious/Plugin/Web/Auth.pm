@@ -189,6 +189,16 @@ This is a callback when authentication was errored.
 
 hayajo E<lt>hayajo@cpan.orgE<gt>
 
+=head1 CONTRIBUTORS
+
+Many thanks to the contributors for their work.
+
+=over 4
+
+=item FAYLAND
+
+=back
+
 =head1 COPYRIGHT
 
 Copyright 2013- hayajo
