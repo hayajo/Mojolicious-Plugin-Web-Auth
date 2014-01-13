@@ -2,6 +2,9 @@ Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
 
+0.07  2014-01-13 16:17:39 JST
+        - fixed deprecated method (Mojo::UserAgent#name). thanks fayland@github, battlemidget@github.
+
 0.06  2013-11-10 12:01:22 JST
         - fixed a bug where a module that is cached incompletely
 
