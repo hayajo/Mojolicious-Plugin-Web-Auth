@@ -87,7 +87,7 @@ sub _ua {
 
 sub _response_to_hash {
     my ( $self, $res ) = @_;
-    return ( $res->headers->content_type eq 'application/json' )
+    return ( $res->headers->content_type =~ /^application\/json[;]?/ )
         ? $res->json
         : Mojo::Parameters->new( $res->body )->to_hash;
 }
