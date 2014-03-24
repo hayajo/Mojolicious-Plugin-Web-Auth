@@ -38,15 +38,15 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 
 # DESCRIPTION
 
-[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) is authentication plugin for [Mojolicious](http://search.cpan.org/perldoc?Mojolicious).
+[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) is authentication plugin for [Mojolicious](https://metacpan.org/pod/Mojolicious).
 
 # METHODS
 
-[Mojolicious::Plugin::Directory](http://search.cpan.org/perldoc?Mojolicious::Plugin::Directory) inherits all methods from [Mojolicious::Plugin](http://search.cpan.org/perldoc?Mojolicious::Plugin).
+[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) inherits all methods from [Mojolicious::Plugin](https://metacpan.org/pod/Mojolicious::Plugin).
 
 # OPTIONS
 
-[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) supports the following options.
+[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) supports the following options.
 
 ## `module`
 
@@ -135,4 +135,4 @@ it under the same terms as Perl itself.
 
 # SEE ALSO
 
-[Mojolicious](http://search.cpan.org/perldoc?Mojolicious), [Amon2::Auth](http://search.cpan.org/perldoc?Amon2::Auth)
+[Mojolicious](https://metacpan.org/pod/Mojolicious), [Amon2::Auth](https://metacpan.org/pod/Amon2::Auth)

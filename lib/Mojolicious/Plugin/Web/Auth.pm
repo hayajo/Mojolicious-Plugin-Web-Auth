@@ -96,7 +96,7 @@ L<Mojolicious::Plugin::Web::Auth> is authentication plugin for L<Mojolicious>.
 
 =head1 METHODS
 
-L<Mojolicious::Plugin::Directory> inherits all methods from L<Mojolicious::Plugin>.
+L<Mojolicious::Plugin::Web::Auth> inherits all methods from L<Mojolicious::Plugin>.
 
 =head1 OPTIONS
 
