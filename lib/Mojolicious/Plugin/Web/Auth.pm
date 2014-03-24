@@ -197,6 +197,8 @@ Many thanks to the contributors for their work.
 
 =item FAYLAND
 
+=item uzulla@github
+
 =back
 
 =head1 COPYRIGHT
