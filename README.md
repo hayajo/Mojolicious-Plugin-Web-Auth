@@ -123,6 +123,7 @@ hayajo <hayajo@cpan.org>
 Many thanks to the contributors for their work.
 
 - FAYLAND
+- uzulla@github
 
 # COPYRIGHT
 
