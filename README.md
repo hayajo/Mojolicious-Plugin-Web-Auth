@@ -5,7 +5,7 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 # SYNOPSIS
 
     # Mojolicious
-    $self->plugin('Web::Auth'
+    $self->plugin('Web::Auth',
         module      => 'Twitter',
         key         => 'Twitter consumer key',
         secret      => 'Twitter consumer secret',
