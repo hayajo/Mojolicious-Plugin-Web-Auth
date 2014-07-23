@@ -24,6 +24,9 @@ sub auth_uri {
 sub callback {
     my ($self, $c, $callback) = @_;
 
+    if (my $error = $c->req->param('error')) {
+        return $callback->{on_error}->($error);
+    }
     if (my $error_description = $c->req->param('error_description')) {
         return $callback->{on_error}->($error_description);
     }
