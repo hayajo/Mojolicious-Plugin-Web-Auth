@@ -4,6 +4,7 @@ use Mojo::Base 'Mojolicious::Plugin::Web::Auth::Base';
 use Mojo::URL;
 use Mojo::Parameters;
 
+has 'validate_state' => 1;
 has 'scope';
 has 'response_type';
 
@@ -18,6 +19,12 @@ sub auth_uri {
     $url->query->param( scope         => $self->scope ) if ( defined $self->scope );
     $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
 
+    if ( $self->validate_state ) {
+        my $state = _random_str(32);
+        $c->session->{oauth2_state} = $state;
+        $url->query->param( state => $state );
+    }
+
     return $url->to_string;
 }
 
@@ -28,6 +35,10 @@ sub callback {
         return $callback->{on_error}->($error_description);
     }
     my $code = $c->param('code') or die "Cannot get a 'code' parameter";
+
+    if ($self->validate_state && $c->session->{oauth2_state} ne $c->param('state')) {
+        return $callback->{on_error}->('state validation failed.');
+    }
 
     my $params = +{
         code          => $code,
@@ -62,6 +73,16 @@ sub callback {
     }
 
     return $callback->{on_finished}->(@args);
+}
+
+sub _random_str {
+    my $length = shift;
+    my @chars = ( 'A' .. 'Z', 'a' .. 'z', '0' .. '9' );
+    my $ret;
+    for ( 1 .. $length ) {
+        $ret .= $chars[ int rand @chars ];
+    }
+    return $ret;
 }
 
 sub _ua {
