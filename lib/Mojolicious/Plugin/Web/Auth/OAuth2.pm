@@ -3,10 +3,12 @@ package Mojolicious::Plugin::Web::Auth::OAuth2;
 use Mojo::Base 'Mojolicious::Plugin::Web::Auth::Base';
 use Mojo::URL;
 use Mojo::Parameters;
+use Digest::SHA1;
 
-has 'validate_state' => 1;
 has 'scope';
 has 'response_type';
+has 'validate_state' => 1;
+has 'state_generator' => sub { Digest::SHA1::sha1_hex(rand() . $$ . {} . time) };
 
 sub auth_uri {
     my ( $self, $c, $callback_uri ) = @_;
@@ -20,7 +22,7 @@ sub auth_uri {
     $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
 
     if ( $self->validate_state ) {
-        my $state = _random_str(32);
+        my $state = $self->state_generator->();
         $c->session->{oauth2_state} = $state;
         $url->query->param( state => $state );
     }
@@ -36,8 +38,11 @@ sub callback {
     }
     my $code = $c->param('code') or die "Cannot get a 'code' parameter";
 
-    if ($self->validate_state && $c->session->{oauth2_state} ne $c->param('state')) {
-        return $callback->{on_error}->('state validation failed.');
+    if ( $self->validate_state ) {
+        my $state = delete $c->session->{oauth2_state};
+        if ( $state ne $c->param('state') ) {
+            return $callback->{on_error}->('state validation failed.');
+        }
     }
 
     my $params = +{
@@ -73,16 +78,6 @@ sub callback {
     }
 
     return $callback->{on_finished}->(@args);
-}
-
-sub _random_str {
-    my $length = shift;
-    my @chars = ( 'A' .. 'Z', 'a' .. 'z', '0' .. '9' );
-    my $ret;
-    for ( 1 .. $length ) {
-        $ret .= $chars[ int rand @chars ];
-    }
-    return $ret;
 }
 
 sub _ua {
