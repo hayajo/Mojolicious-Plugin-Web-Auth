@@ -199,6 +199,8 @@ Many thanks to the contributors for their work.
 
 =item uzulla@github
 
+=item sachinjsk@github
+
 =back
 
 =head1 COPYRIGHT
