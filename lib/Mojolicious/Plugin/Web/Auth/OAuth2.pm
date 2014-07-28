@@ -3,12 +3,12 @@ package Mojolicious::Plugin::Web::Auth::OAuth2;
 use Mojo::Base 'Mojolicious::Plugin::Web::Auth::Base';
 use Mojo::URL;
 use Mojo::Parameters;
-use Digest::SHA1;
+use Digest::SHA;
 
 has 'scope';
 has 'response_type';
 has 'validate_state' => 1;
-has 'state_generator' => sub { Digest::SHA1::sha1_hex(rand() . $$ . {} . time) };
+has 'state_generator';
 
 sub auth_uri {
     my ( $self, $c, $callback_uri ) = @_;
@@ -22,7 +22,7 @@ sub auth_uri {
     $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
 
     if ( $self->validate_state ) {
-        my $state = $self->state_generator->();
+        my $state = $self->state_generator ? $self->state_generator->() : _state_generator();
         $c->session->{oauth2_state} = $state;
         $url->query->param( state => $state );
     }
@@ -106,6 +106,11 @@ sub _response_to_hash {
     return ( $res->headers->content_type =~ /^application\/json[;]?/ )
         ? $res->json
         : Mojo::Parameters->new( $res->body )->to_hash;
+}
+
+# default state param generator copy from Plack::Session::State
+sub _state_generator {
+    Digest::SHA::sha1_hex(rand() . $$ . {} . time) 
 }
 
 1;
