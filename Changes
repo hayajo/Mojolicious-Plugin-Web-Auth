@@ -1,6 +1,8 @@
 Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
+        - fixed the error handling when user has canceled authentication. thanks sachinjsk@github
+        - added the validate_state option in Mojolicious::Plugin::Web::Auth::OAuth2. thanks mala@github
 
 0.08  2014-03-24 13:24:58 JST
         - fixed to support a content-type with charset. thanks uzulla@github.
