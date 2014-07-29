@@ -131,6 +131,11 @@ optional. OAuth 2.0 only.
           ...
       };
 
+=head2 C<validate_state>
+
+optinal. OAuth 2.0 only. default value is 1, see L<http://tools.ietf.org/html/rfc6819#section-5.3.5>
+
+
 =head2 C<on_finished>
 
   # Mojolicious::Lite

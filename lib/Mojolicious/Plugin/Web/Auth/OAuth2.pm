@@ -3,9 +3,12 @@ package Mojolicious::Plugin::Web::Auth::OAuth2;
 use Mojo::Base 'Mojolicious::Plugin::Web::Auth::Base';
 use Mojo::URL;
 use Mojo::Parameters;
+use Digest::SHA;
 
 has 'scope';
 has 'response_type';
+has 'validate_state' => 1;
+has 'state_generator';
 
 sub auth_uri {
     my ( $self, $c, $callback_uri ) = @_;
@@ -18,6 +21,12 @@ sub auth_uri {
     $url->query->param( scope         => $self->scope ) if ( defined $self->scope );
     $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
 
+    if ( $self->validate_state ) {
+        my $state = $self->state_generator ? $self->state_generator->() : _state_generator();
+        $c->session->{oauth2_state} = $state;
+        $url->query->param( state => $state );
+    }
+
     return $url->to_string;
 }
 
@@ -29,6 +38,13 @@ sub callback {
         return $callback->{on_error}->( $error, $error_description );
     }
     my $code = $c->param('code') or die "Cannot get a 'code' parameter";
+
+    if ( $self->validate_state ) {
+        my $state = delete $c->session->{oauth2_state};
+        if ( $state ne $c->param('state') ) {
+            return $callback->{on_error}->('state validation failed.');
+        }
+    }
 
     my $params = +{
         code          => $code,
@@ -91,6 +107,11 @@ sub _response_to_hash {
     return ( $res->headers->content_type =~ /^application\/json[;]?/ )
         ? $res->json
         : Mojo::Parameters->new( $res->body )->to_hash;
+}
+
+# default state param generator copy from Plack::Session::State
+sub _state_generator {
+    Digest::SHA::sha1_hex(rand() . $$ . {} . time) 
 }
 
 1;
