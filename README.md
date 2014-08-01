@@ -38,15 +38,15 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 
 # DESCRIPTION
 
-[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) is authentication plugin for [Mojolicious](https://metacpan.org/pod/Mojolicious).
+[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) is authentication plugin for [Mojolicious](http://search.cpan.org/perldoc?Mojolicious).
 
 # METHODS
 
-[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) inherits all methods from [Mojolicious::Plugin](https://metacpan.org/pod/Mojolicious::Plugin).
+[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) inherits all methods from [Mojolicious::Plugin](http://search.cpan.org/perldoc?Mojolicious::Plugin).
 
 # OPTIONS
 
-[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) supports the following options.
+[Mojolicious::Plugin::Web::Auth](http://search.cpan.org/perldoc?Mojolicious::Plugin::Web::Auth) supports the following options.
 
 ## `module`
 
@@ -76,6 +76,12 @@ optional. OAuth 2.0 only.
             my ( $c, $access_token, $user_info ) = @_;
             ...
         };
+
+## `validate_state`
+
+optinal. OAuth 2.0 only. default value is 1, see [http://tools.ietf.org/html/rfc6819\#section-5.3.5](http://tools.ietf.org/html/rfc6819\#section-5.3.5)
+
+
 
 ## `on_finished`
 
@@ -124,6 +130,8 @@ Many thanks to the contributors for their work.
 
 - FAYLAND
 - uzulla@github
+- sachinjsk@github
+- mala@github
 
 # COPYRIGHT
 
@@ -136,4 +144,4 @@ it under the same terms as Perl itself.
 
 # SEE ALSO
 
-[Mojolicious](https://metacpan.org/pod/Mojolicious), [Amon2::Auth](https://metacpan.org/pod/Amon2::Auth)
+[Mojolicious](http://search.cpan.org/perldoc?Mojolicious), [Amon2::Auth](http://search.cpan.org/perldoc?Amon2::Auth)
