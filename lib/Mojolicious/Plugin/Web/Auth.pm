@@ -31,6 +31,7 @@ sub register {
         my $c    = shift;
         my $path = $c->req->url->path;
         if ( $path->contains($authenticate_path) ) {
+            $c->req->url->base->scheme('https') if( $c->req->headers->header('x-forwarded-proto') eq 'https');
             my $callback = $c->req->url->path($callback_path)->to_abs;
             return $c->redirect_to( $auth->auth_uri( $c, $callback ) );
         }

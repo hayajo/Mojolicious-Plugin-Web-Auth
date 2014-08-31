@@ -38,6 +38,7 @@ sub callback {
         return $callback->{on_error}->( $error, $error_description );
     }
     my $code = $c->param('code') or die "Cannot get a 'code' parameter";
+    $c->req->url->base->scheme('https') if ($c->req->headers->header('x-forwarded-proto') eq 'https');
 
     if ( $self->validate_state ) {
         my $state = delete $c->session->{oauth2_state};
