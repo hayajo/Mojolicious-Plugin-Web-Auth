@@ -4,7 +4,7 @@
       "hayajo <hayajo@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Milla version v1.0.4, Dist::Zilla version 5.006, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Minilla/v2.1.1, CPAN::Meta::Converter version 2.142060",
    "license" : [
       "perl_5"
    ],
@@ -20,18 +20,24 @@
          "inc",
          "share",
          "eg",
-         "examples"
+         "examples",
+         "author",
+         "builder"
       ]
    },
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.030"
+            "Module::Build" : "0.38"
          }
       },
       "develop" : {
          "requires" : {
-            "Test::Pod" : "1.41"
+            "Test::CPAN::Meta" : "0",
+            "Test::MinimumVersion::Fast" : "0.04",
+            "Test::PAUSE::Permissions" : "0.04",
+            "Test::Pod" : "1.41",
+            "Test::Spellunker" : "v0.2.7"
          }
       },
       "runtime" : {
@@ -48,7 +54,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "unstable",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth/issues"
@@ -56,20 +62,19 @@
       "homepage" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth",
       "repository" : {
          "type" : "git",
-         "url" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git",
+         "url" : "git://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git",
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.09",
+   "version" : "0.10",
    "x_contributors" : [
-      "Fayland Lam <fayland@gmail.com>",
-      "Hayato Imai <hayato.imai@gmail.com>",
-      "Sachin Sebastian <sachinjsk@users.noreply.github.com>",
       "hayato imai <hayato.imai@global-netcore.jp>",
-      "hayato imai <hayato.imai@gmail.com>",
       "hayato imai <imaiha@imaiha-dev.localdomain>",
+      "Fayland Lam <fayland@gmail.com>",
+      "uzulla <uzulla@himitsukichi.com>",
+      "Sachin Sebastian <sachinjsk@users.noreply.github.com>",
       "mala <github@ma.la>",
-      "uzulla <uzulla@himitsukichi.com>"
+      "Shohei Kameda <shoheik@cpan.org>",
+      "Hayato Imai <hayato.imai@gmail.com>"
    ]
 }
-

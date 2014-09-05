@@ -3,7 +3,7 @@ package Mojolicious::Plugin::Web::Auth;
 use strict;
 use warnings;
 
-our $VERSION = '0.09';
+our $VERSION = '0.10';
 
 use Mojo::Base 'Mojolicious::Plugin';
 
@@ -208,6 +208,8 @@ Many thanks to the contributors for their work.
 =item sachinjsk@github
 
 =item mala@github
+
+=item shohey1226@github
 
 =back
 

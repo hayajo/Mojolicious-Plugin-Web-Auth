@@ -132,6 +132,7 @@ Many thanks to the contributors for their work.
 - uzulla@github
 - sachinjsk@github
 - mala@github
+- shohey1226@github
 
 # COPYRIGHT
 
