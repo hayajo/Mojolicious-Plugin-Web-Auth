@@ -4,3 +4,5 @@
 /Build
 MYMETA.*
 !META.json
+local/
+cpanfile.snapshot
