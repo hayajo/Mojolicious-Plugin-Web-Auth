@@ -1,6 +1,7 @@
 Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
+        - added an authorize_header property in Mojolicious::Plugin::Web::Auth::OAuth2 to support a Authorization Header. thanks levonet@github.
 
 0.10 2014-09-05T13:48:41Z
         - fixed to change the scheme, when the request-header has x-forwarded-proto value of "https". thanks shohey1226@github
