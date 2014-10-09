@@ -61,12 +61,11 @@
       },
       "homepage" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth",
       "repository" : {
-         "type" : "git",
-         "url" : "git://github.com/hayajo/Mojolicious-Plugin-Web-Auth.git",
+         "url" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth",
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.10",
+   "version" : "0.11",
    "x_contributors" : [
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <imaiha@imaiha-dev.localdomain>",
@@ -75,6 +74,7 @@
       "Sachin Sebastian <sachinjsk@users.noreply.github.com>",
       "mala <github@ma.la>",
       "Shohei Kameda <shoheik@cpan.org>",
+      "Pavel Bashinsky <levonet@gmail.com>",
       "Hayato Imai <hayato.imai@gmail.com>"
    ]
 }
