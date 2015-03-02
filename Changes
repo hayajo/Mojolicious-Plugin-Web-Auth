@@ -1,6 +1,8 @@
 Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
+
+0.12 2015-03-02T04:03:00Z
         - Minillaize
         - supported Mojo::Loader::load_class (added Mojolicious 5.81)
 
