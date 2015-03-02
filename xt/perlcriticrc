@@ -1,4 +1,0 @@
-[TestingAndDebugging::ProhibitNoStrict]
-allow=refs
-[TestingAndDebugging::RequireUseStrict]
-equivalent_modules = Mojo::Base

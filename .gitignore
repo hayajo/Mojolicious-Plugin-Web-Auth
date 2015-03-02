@@ -6,3 +6,7 @@ MYMETA.*
 !META.json
 local/
 cpanfile.snapshot
+/_build_params
+/Build.bat
+!Build/
+!LICENSE
