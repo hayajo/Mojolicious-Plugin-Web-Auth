@@ -2,6 +2,7 @@ Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
         - Minillaize
+        - supported Mojo::Loader::load_class (added Mojolicious 5.81)
 
 0.11 2014-10-09T01:24:56Z
         - added an authorize_header property in Mojolicious::Plugin::Web::Auth::OAuth2 to support a Authorization Header. thanks levonet@github.

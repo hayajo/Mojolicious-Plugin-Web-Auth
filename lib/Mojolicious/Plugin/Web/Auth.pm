@@ -11,7 +11,11 @@ sub register {
     my ( $self, $app, $args ) = @_;
     my $module = delete $args->{module} or die "Missing mandatory parameter: module";
     my $klass  = join '::', __PACKAGE__, 'Site', $module;
-    Mojo::Loader->load($klass);
+    if ($Mojolicious::VERSION >= 5.81) {
+        Mojo::Loader::load_class($klass);
+    } else {
+        Mojo::Loader->load($klass);
+    }
 
     my $moniker           = $klass->moniker();
     my $authenticate_path = delete $args->{authenticate_path} || "/auth/${moniker}/authenticate";
