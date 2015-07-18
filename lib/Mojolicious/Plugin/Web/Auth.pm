@@ -98,7 +98,7 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Plugin::Web::Auth> is authentication plugin for L<Mojolicious>.
+L<Mojolicious::Plugin::Web::Auth> is an authentication plugin for L<Mojolicious>.
 
 =head1 METHODS
 
@@ -116,15 +116,15 @@ Dropbox, Facebook, Github, Google, Instagram, Twitter.
 
 =head2 C<key>
 
-consumer key
+Consumer key.
 
 =head2 C<secret>
 
-consumer secret
+Consumer secret.
 
 =head2 C<scope>
 
-optional. OAuth 2.0 only.
+Optional: OAuth 2.0 only.
 
   # Facebook
   plugin 'Web::Auth',
@@ -139,7 +139,7 @@ optional. OAuth 2.0 only.
 
 =head2 C<validate_state>
 
-optinal. OAuth 2.0 only. default value is 1, see L<http://tools.ietf.org/html/rfc6819#section-5.3.5>
+Optional: OAuth 2.0 only. Default value is 1, see L<http://tools.ietf.org/html/rfc6819#section-5.3.5>.
 
 
 =head2 C<on_finished>
@@ -154,7 +154,7 @@ optinal. OAuth 2.0 only. default value is 1, see L<http://tools.ietf.org/html/rf
           ...
       };
 
-This is a callback when authentication was finished.
+This callback is run when authentication was finished.
 
 =head3 arguments
 
@@ -194,7 +194,7 @@ Facebook, Github, Google, Instagram, etc.
 
 =head2 C<on_error>
 
-This is a callback when authentication was errored.
+This is a callback is run on authentication errors.
 
 =head1 AUTHOR
 
