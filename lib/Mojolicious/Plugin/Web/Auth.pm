@@ -96,6 +96,21 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
   # /auth/twitter/callback
   # /auth/facebook/callback
 
+  # If, for example, your Instagram app needs more permissions than the
+  # defaults allow:
+
+  # Mojolicious
+  $self->plugin('Web::Auth',
+      module      => 'Instagram',
+      key         => 'Instagram consumer key',
+      secret      => 'Instagram consumer secret',
+      on_finished => sub {
+          my ( $c, $access_token, $access_secret ) = @_;
+          ...
+      },
+      authorize_url => 'https://api.instagram.com/oauth/authorize?scope=public_content',
+  );
+
 =head1 DESCRIPTION
 
 L<Mojolicious::Plugin::Web::Auth> is an authentication plugin for L<Mojolicious>.
