@@ -1,0 +1,86 @@
+#!/usr/bin/env perl
+
+use FindBin;
+BEGIN { unshift @INC, "$FindBin::Bin/../lib" }
+
+use Mojolicious::Lite;
+use Config::Pit;
+
+print STDERR "[NOTICE] should be used in domains other than 'localhost' (e.g. local.example.com)\n";
+
+my $site = 'Gitlab';
+helper site => sub { $site };
+
+my $pit = pit_get(
+    lc($site),
+    require => {
+        key    => "GitLab Client ID",
+        secret => "GitLab Secret",
+
+        # Custom URLs for self-hosted
+        user_info_url    => "https://gitlab.example.com/api/v2/user",
+        authorize_url    => "https://gitlab.example.com/oauth/authorize",
+        access_token_url => "https://gitlab.example.com/oauth/token"
+    }
+);
+
+plugin 'Mojolicious::Plugin::Web::Auth',
+    module      => ucfirst( lc $site ),
+    key         => $pit->{key},
+    secret      => $pit->{secret},
+
+    # user_info_url    => $pit->{user_info_url},
+    # authorize_url    => $pit->{authorize_url},
+    # access_token_url => $pit->{access_token_url},
+
+    on_finished => sub {
+        my ($c, $access_token, $account_info) = @_;
+        $c->session('access_token' => $access_token);
+        $c->session('account_info' => $account_info);
+        return $c->redirect_to('index');
+    };
+
+get '/' => sub {
+    my ($c) = @_;
+    unless ( $c->session('account_info') ) {
+        return $c->redirect_to('login');
+    }
+} => 'index';
+
+any [qw/get post/] => '/login' => sub {
+    my ($c) = @_;
+    if (uc $c->req->method eq 'POST') {
+        return $c->redirect_to( sprintf( "/auth/%s/authenticate", lc $site ) );
+    }
+} => 'login';
+
+post '/logout' => sub {
+    my ($c) = @_;
+    $c->session( expires => 1 );
+    $c->redirect_to('index');
+} => 'logout';
+
+app->start;
+
+__DATA__
+
+@@ index.html.ep
+% layout 'default';
+Hello <%= session('account_info')->{name} %>@<%= site %>
+<form method="post" action="/logout">
+<button type="submit">Logout</button>
+</form>
+
+@@ login.html.ep
+% layout 'default';
+<form method="post">
+<button type="submit">Login with <%= site %></button>
+</form>
+
+@@ layouts/default.html.ep
+% title 'Auth' . ucfirst(lc site);
+<!DOCTYPE html>
+<html>
+  <head><title><%= title %></title></head>
+  <body><%= content %></body>
+</html>
