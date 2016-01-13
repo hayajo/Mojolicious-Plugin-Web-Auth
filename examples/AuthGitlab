@@ -18,7 +18,7 @@ my $pit = pit_get(
         secret => "GitLab Secret",
 
         # Custom URLs for self-hosted
-        user_info_url    => "https://gitlab.example.com/api/v2/user",
+        user_info_url    => "https://gitlab.example.com/api/v3/user",
         authorize_url    => "https://gitlab.example.com/oauth/authorize",
         access_token_url => "https://gitlab.example.com/oauth/token"
     }
