@@ -10,7 +10,8 @@ use Mojo::Base 'Mojolicious::Plugin';
 sub register {
     my ( $self, $app, $args ) = @_;
     my $module = delete $args->{module} or die "Missing mandatory parameter: module";
-    my $klass  = join '::', __PACKAGE__, 'Site', $module;
+    my $namespace = delete $args->{namespace} || join '::', __PACKAGE__, 'Site';
+    my $klass  = join '::', $namespace, $module;
     if ($Mojolicious::VERSION >= 5.81) {
         Mojo::Loader::load_class($klass);
     } else {
@@ -52,7 +53,7 @@ sub register {
         }
     } );
 
-    return $self;
+    return $self, $auth;
 }
 
 1;
