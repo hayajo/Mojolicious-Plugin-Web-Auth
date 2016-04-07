@@ -52,7 +52,7 @@ sub register {
         }
     } );
 
-    return $self;
+    return $self, $auth;
 }
 
 1;
