@@ -91,10 +91,12 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
   # e.g.)
   # /auth/twitter/authenticate
   # /auth/facebook/authenticate
+  # /auth/wordpress/authenticate
   ### default callback endpoint: /auth/{moniker}/callback
   # e.g.)
   # /auth/twitter/callback
   # /auth/facebook/callback
+  # /auth/wordpress/callback
 
   # If, for example, your Instagram app needs more permissions than the
   # defaults allow:
@@ -127,7 +129,7 @@ L<Mojolicious::Plugin::Web::Auth> supports the following options.
 
 This is a module name for authentication plugins.
 
-Dropbox, Facebook, Github, Google, Instagram, Twitter.
+Dropbox, Facebook, Github, Google, Instagram, Twitter, WordPress (using L<https://github.com/WP-API/OAuth1> plugin).
 
 =head2 C<key>
 
@@ -177,7 +179,7 @@ This callback is run when authentication was finished.
 
 =item * OAuth 1.0(A)
 
-Dropbox, Twitter, etc.
+Dropbox, Twitter, WordPress, etc.
 
 =over 4
 
