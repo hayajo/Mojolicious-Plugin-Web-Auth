@@ -21,6 +21,7 @@ sub auth_uri {
     $url->query->param( redirect_uri  => $callback_uri );
     $url->query->param( scope         => $self->scope ) if ( defined $self->scope );
     $url->query->param( response_type => $self->response_type ) if ( defined $self->response_type );
+    $url->query->param( access_type   => $self->access_type ) if ( defined $self->access_type );
 
     if ( $self->validate_state ) {
         my $state = $self->state_generator ? $self->state_generator->() : _state_generator();
@@ -84,6 +85,10 @@ sub callback {
         push @args, $res->json;
     }
 
+    if (defined $dat->{refresh_token}) {
+        push @args, $dat->{refresh_token};
+    }
+
     return $callback->{on_finished}->(@args);
 }
 
@@ -117,7 +122,7 @@ sub _response_to_hash {
 
 # default state param generator copy from Plack::Session::State
 sub _state_generator {
-    Digest::SHA::sha1_hex(rand() . $$ . {} . time) 
+    Digest::SHA::sha1_hex(rand() . $$ . {} . time)
 }
 
 1;

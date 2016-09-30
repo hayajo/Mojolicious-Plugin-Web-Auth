@@ -7,6 +7,7 @@ has scope            => 'https://www.googleapis.com/auth/plus.me'; # use Google+
 has authorize_url    => 'https://accounts.google.com/o/oauth2/auth?response_type=code';
 has access_token_url => 'https://accounts.google.com/o/oauth2/token';
 has user_info_url    => 'https://www.googleapis.com/plus/v1/people/me';
+has access_type      => 'offline'; # optional
 
 sub moniker {'google'};
 
