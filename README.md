@@ -35,9 +35,24 @@ Mojolicious::Plugin::Web::Auth - Authentication plugin for Mojolicious
     # /auth/twitter/callback
     # /auth/facebook/callback
 
+    # If, for example, your Instagram app needs more permissions than the
+    # defaults allow:
+
+    # Mojolicious
+    $self->plugin('Web::Auth',
+        module      => 'Instagram',
+        key         => 'Instagram consumer key',
+        secret      => 'Instagram consumer secret',
+        on_finished => sub {
+            my ( $c, $access_token, $access_secret ) = @_;
+            ...
+        },
+        authorize_url => 'https://api.instagram.com/oauth/authorize?scope=public_content',
+    );
+
 # DESCRIPTION
 
-[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) is authentication plugin for [Mojolicious](https://metacpan.org/pod/Mojolicious).
+[Mojolicious::Plugin::Web::Auth](https://metacpan.org/pod/Mojolicious::Plugin::Web::Auth) is an authentication plugin for [Mojolicious](https://metacpan.org/pod/Mojolicious).
 
 # METHODS
 
@@ -55,15 +70,15 @@ Dropbox, Facebook, Github, Google, Instagram, Twitter.
 
 ## `key`
 
-consumer key
+Consumer key.
 
 ## `secret`
 
-consumer secret
+Consumer secret.
 
 ## `scope`
 
-optional. OAuth 2.0 only.
+Optional: OAuth 2.0 only.
 
     # Facebook
     plugin 'Web::Auth',
@@ -78,7 +93,7 @@ optional. OAuth 2.0 only.
 
 ## `validate_state`
 
-optinal. OAuth 2.0 only. default value is 1, see [http://tools.ietf.org/html/rfc6819#section-5.3.5](http://tools.ietf.org/html/rfc6819#section-5.3.5)
+Optional: OAuth 2.0 only. Default value is 1, see [http://tools.ietf.org/html/rfc6819#section-5.3.5](http://tools.ietf.org/html/rfc6819#section-5.3.5).
 
 ## `on_finished`
 
@@ -92,7 +107,7 @@ optinal. OAuth 2.0 only. default value is 1, see [http://tools.ietf.org/html/rfc
             ...
         };
 
-This is a callback when authentication was finished.
+This callback is run when authentication was finished.
 
 ### arguments
 
@@ -115,7 +130,7 @@ This is a callback when authentication was finished.
 
 ## `on_error`
 
-This is a callback when authentication was errored.
+This is a callback is run on authentication errors.
 
 # AUTHOR
 
@@ -131,6 +146,7 @@ Many thanks to the contributors for their work.
 - mala@github
 - shohey1226@github
 - levonet@github
+- oalders@github
 
 # COPYRIGHT
 
