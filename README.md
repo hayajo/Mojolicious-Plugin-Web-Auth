@@ -127,6 +127,9 @@ This callback is run when authentication was finished.
     - Mojolicious::Controller
     - access\_token
     - user\_info ( enabled 'user\_info' )
+    - rest of the response data (HASHREF)
+
+        id\_token, expires, refresh\_token, etc.
 
 ## `on_error`
 
@@ -147,6 +150,7 @@ Many thanks to the contributors for their work.
 - shohey1226@github
 - levonet@github
 - oalders@github
+- ccakes@github
 
 # COPYRIGHT
 

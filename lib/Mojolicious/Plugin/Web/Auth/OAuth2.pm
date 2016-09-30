@@ -66,12 +66,14 @@ sub callback {
     };
 
     my $dat = $self->_response_to_hash($res);
-    if ( my $err = $dat->{error} ) {
+    if ( my $err = delete $dat->{error} ) {
         return $callback->{on_error}->($err);
     }
 
-    my $access_token = $dat->{access_token} or die "Cannot get a access_token";
+    my $access_token = delete $dat->{access_token}
+        or die "Cannot get an access_token";
     my @args = ($access_token);
+
     if ( $self->user_info ) {
         my $url = Mojo::URL->new( $self->user_info_url );
         $url->query->param( access_token => $access_token ) unless ( defined $self->authorize_header );
@@ -82,7 +84,11 @@ sub callback {
         ( my $res = $tx->success )
             or return $callback->{on_error}->( sprintf( '%d %s', $tx->res->code, $tx->res->default_message ) );
         push @args, $res->json;
+    } else {
+        push @args, undef;
     }
+
+    push @args, { %$dat }; # append rest of the response data as hashref
 
     return $callback->{on_finished}->(@args);
 }

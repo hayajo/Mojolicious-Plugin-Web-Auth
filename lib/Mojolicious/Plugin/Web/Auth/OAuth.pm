@@ -36,6 +36,8 @@ sub callback {
         return $callback->{on_error}->( $res->decoded_content )
             unless ( $res->is_success );
         push @args, Mojo::JSON::j( $res->decoded_content );
+    } else {
+        push @args, undef;
     }
 
     return $callback->{on_finished}->(@args);
