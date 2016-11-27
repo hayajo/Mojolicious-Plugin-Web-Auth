@@ -127,7 +127,7 @@ L<Mojolicious::Plugin::Web::Auth> supports the following options.
 
 This is a module name for authentication plugins.
 
-Dropbox, Facebook, Github, Google, Instagram, Twitter.
+Dropbox, Facebook, Github, Google, Instagram, Twitter, Spotify.
 
 =head2 C<key>
 
@@ -193,7 +193,7 @@ Dropbox, Twitter, etc.
 
 =item * OAuth 2.0
 
-Facebook, Github, Google, Instagram, etc.
+Facebook, Github, Google, Instagram, Spotify, etc.
 
 =over 4
 
