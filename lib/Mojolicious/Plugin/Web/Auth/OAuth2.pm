@@ -72,6 +72,8 @@ sub callback {
 
     my $access_token = $dat->{access_token} or die "Cannot get a access_token";
     my @args = ($access_token);
+    push @args, $dat->{refresh_token} if $dat->{refresh_token};
+
     if ( $self->user_info ) {
         my $url = Mojo::URL->new( $self->user_info_url );
         $url->query->param( access_token => $access_token ) unless ( defined $self->authorize_header );
