@@ -186,6 +186,8 @@ Facebook, Github, Google, Instagram, etc.
 
 =item access_token
 
+=item refresh_token ( if available )
+
 =item user_info ( enabled 'user_info' )
 
 =back
