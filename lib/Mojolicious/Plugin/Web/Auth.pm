@@ -203,6 +203,10 @@ Facebook, Github, Google, Instagram, etc.
 
 =item user_info ( enabled 'user_info' )
 
+=item rest of the response data (HASHREF)
+
+id_token, expires, refresh_token, etc.
+
 =back
 
 =back
@@ -234,6 +238,8 @@ Many thanks to the contributors for their work.
 =item levonet@github
 
 =item oalders@github
+
+=item ccakes@github
 
 =back
 

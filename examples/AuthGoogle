@@ -24,9 +24,13 @@ plugin 'Mojolicious::Plugin::Web::Auth',
     key         => $pit->{key},
     secret      => $pit->{secret},
     on_finished => sub {
-        my ($c, $access_token, $account_info) = @_;
-        $c->session('access_token' => $access_token);
-        $c->session('account_info' => $account_info);
+        my ($c, $access_token, $account_info, $rest) = @_;
+        $c->session('access_token'  => $access_token);
+        $c->session('account_info'  => $account_info);
+
+        $c->session('refresh_token' => $rest->{refresh_token})
+            if $rest->{refresh_token};
+
         return $c->redirect_to('index');
     };
 
