@@ -4,7 +4,7 @@
       "hayajo <hayajo@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.3.0, CPAN::Meta::Converter version 2.143240",
+   "generated_by" : "Minilla/v3.0.9, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -28,7 +28,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.38"
+            "Module::Build::Tiny" : "0.035"
          }
       },
       "develop" : {
@@ -66,7 +66,7 @@
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.12",
+   "version" : "0.13",
    "x_contributors" : [
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <imaiha@imaiha-dev.localdomain>",
@@ -76,6 +76,7 @@
       "mala <github@ma.la>",
       "Shohei Kameda <shoheik@cpan.org>",
       "Pavel Bashinsky <levonet@gmail.com>",
+      "Olaf Alders <olaf@wundersolutions.com>",
       "Hayato Imai <hayato.imai@gmail.com>"
    ]
 }
