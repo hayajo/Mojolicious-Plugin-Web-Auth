@@ -2,6 +2,9 @@ Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
 
+0.14 2017-05-01T02:56:21Z
+        - fixed issue #29. thanks guest20@github
+
 0.13 2017-01-19T00:50:55Z
         - update pod. thanks oalders@github.
         - support refresh_token and access_type(Google). thanks ccakes@github.

@@ -5,7 +5,9 @@ use Net::OAuth::Client;
 use Mojo::JSON;
 
 has 'request_token_url';
-has is_v1a => 0;
+has is_v1a           => 0;
+has token_key        => 'token';
+has token_secret_key => 'token_secret';
 
 sub auth_uri {
     my ( $self, $c, $callback_uri ) = @_;
@@ -53,7 +55,19 @@ sub _client {
         access_token_path   => $self->access_token_url,
         access_token_method => 'POST',
         callback            => $callback_uri,
-        session             => sub { $c->session(@_) },
+        session             => sub {
+            if ( @_ > 1 ) {
+                my ($token, $token_secret) = @_;
+                $c->session($self->token_key => $token);
+                $c->session($self->token_secret_key => $token_secret);
+                return;
+            }
+            elsif ( @_ == 1 ) {
+                my $token = $_[0];
+                return $c->session($self->token_secret_key)
+                    if $token eq $c->session($self->token_key);
+            }
+        },
     );
 }
 
