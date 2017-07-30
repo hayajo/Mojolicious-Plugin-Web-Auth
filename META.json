@@ -4,7 +4,7 @@
       "hayajo <hayajo@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.0.9, CPAN::Meta::Converter version 2.150001",
+   "generated_by" : "Minilla/v3.0.10, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "perl_5"
    ],
@@ -66,7 +66,7 @@
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.14",
+   "version" : "0.15",
    "x_contributors" : [
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <imaiha@imaiha-dev.localdomain>",
@@ -77,7 +77,9 @@
       "Shohei Kameda <shoheik@cpan.org>",
       "Pavel Bashinsky <levonet@gmail.com>",
       "Olaf Alders <olaf@wundersolutions.com>",
-      "Hayato Imai <hayato.imai@gmail.com>",
-      "今井隼人 <imai.h@imaihayato-no-MacBook-Pro.local>"
-   ]
+      "今井隼人 <imai.h@imaihayato-no-MacBook-Pro.local>",
+      "Pablo Rodríguez González <pablo.rodriguez.gonzalez@gmail.com>",
+      "hayajo <hayato.imai@gmail.com>"
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27300"
 }

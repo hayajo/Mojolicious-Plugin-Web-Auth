@@ -2,6 +2,9 @@ Revision history for Mojolicious-Plugin-Web-Auth
 
 {{$NEXT}}
 
+0.15 2017-07-30T02:19:21Z
+        - merged PR #30. thanks pablrod@github
+
 0.14 2017-05-01T02:56:21Z
         - fixed issue #29. thanks guest20@github
 
