@@ -60,7 +60,7 @@ __DATA__
 
 @@ index.html.ep
 % layout 'default';
-Hello <%= session('account_info')->{displayName} %>@<%= site %>
+Hello <%= session('account_info')->{name} %>@<%= site %>
 <form method="post" action="/logout">
 <button type="submit">Logout</button>
 </form>
