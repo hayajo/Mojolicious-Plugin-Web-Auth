@@ -1,7 +1,7 @@
-requires 'perl', '5.008005';
+requires 'perl', '5.010001';
 
 # requires 'Some::Module', 'VERSION';
-requires 'Mojolicious',     '>= 3.02';
+requires 'Mojolicious',     '>= 7.13';
 requires 'Net::OAuth',      '>= 0.28';
 requires 'IO::Socket::SSL', '>= 1.77';
 
