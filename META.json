@@ -4,7 +4,7 @@
       "hayajo <hayajo@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.0.10, CPAN::Meta::Converter version 2.150005",
+   "generated_by" : "Minilla/v3.1.4, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -43,9 +43,9 @@
       "runtime" : {
          "requires" : {
             "IO::Socket::SSL" : "1.77",
-            "Mojolicious" : "3.02",
+            "Mojolicious" : "7.13",
             "Net::OAuth" : "0.28",
-            "perl" : "5.008005"
+            "perl" : "5.010001"
          }
       },
       "test" : {
@@ -66,20 +66,20 @@
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.15",
+   "version" : "0.16",
    "x_contributors" : [
+      "Fayland Lam <fayland@gmail.com>",
+      "Olaf Alders <olaf@wundersolutions.com>",
+      "Pablo Rodríguez González <pablo.rodriguez.gonzalez@gmail.com>",
+      "Pavel Bashinsky <levonet@gmail.com>",
+      "Sachin Sebastian <sachinjsk@users.noreply.github.com>",
+      "Shohei Kameda <shoheik@cpan.org>",
+      "hayajo <hayato.imai@gmail.com>",
       "hayato imai <hayato.imai@global-netcore.jp>",
       "hayato imai <imaiha@imaiha-dev.localdomain>",
-      "Fayland Lam <fayland@gmail.com>",
-      "uzulla <uzulla@himitsukichi.com>",
-      "Sachin Sebastian <sachinjsk@users.noreply.github.com>",
       "mala <github@ma.la>",
-      "Shohei Kameda <shoheik@cpan.org>",
-      "Pavel Bashinsky <levonet@gmail.com>",
-      "Olaf Alders <olaf@wundersolutions.com>",
-      "今井隼人 <imai.h@imaihayato-no-MacBook-Pro.local>",
-      "Pablo Rodríguez González <pablo.rodriguez.gonzalez@gmail.com>",
-      "hayajo <hayato.imai@gmail.com>"
+      "uzulla <uzulla@himitsukichi.com>",
+      "今井隼人 <imai.h@imaihayato-no-MacBook-Pro.local>"
    ],
-   "x_serialization_backend" : "JSON::PP version 2.27300"
+   "x_static_install" : 1
 }
