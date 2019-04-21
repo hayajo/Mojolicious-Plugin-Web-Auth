@@ -62,9 +62,8 @@ sub callback {
         ? $self->_ua->post( $self->access_token_url => form => $params )
         : $self->_ua->post_form( $self->access_token_url => $params ); # Mojo::UserAgent::post_form is deprecated from version 3.85
 
-    (my $res = $tx->result->is_success ) or do {
-        return $callback->{on_error}->( $tx->res->body );
-    };
+    my $res = $tx->res;
+    return $callback->{on_error}->( $res->body ) if $tx->error;
 
     my $dat = $self->_response_to_hash($res);
     if ( my $err = delete $dat->{error} ) {
@@ -82,8 +81,9 @@ sub callback {
             ? { 'Authorization' => $self->authorize_header.' '.$access_token }
             : { };
         my $tx = $self->_ua->get( $url->to_abs => $headers );
-        ( my $res = $tx->result->is_success )
-            or return $callback->{on_error}->( sprintf( '%d %s', $tx->res->code, $tx->res->default_message ) );
+        my $res = $tx->res;
+        return $callback->{on_error}->( sprintf( '%d %s', $res->code, $res->default_message ) )
+            if $tx->error;
         push @args, $res->json;
     } else {
         push @args, undef;
