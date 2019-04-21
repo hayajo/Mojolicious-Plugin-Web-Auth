@@ -66,8 +66,9 @@
          "web" : "https://github.com/hayajo/Mojolicious-Plugin-Web-Auth"
       }
    },
-   "version" : "0.16",
+   "version" : "0.17",
    "x_contributors" : [
+      "Dan Book <grinnz@gmail.com>",
       "Fayland Lam <fayland@gmail.com>",
       "Olaf Alders <olaf@wundersolutions.com>",
       "Pablo Rodríguez González <pablo.rodriguez.gonzalez@gmail.com>",
