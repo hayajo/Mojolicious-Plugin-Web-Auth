@@ -3,7 +3,6 @@ package Mojolicious::Plugin::Web::Auth::OAuth2;
 use Mojo::Base 'Mojolicious::Plugin::Web::Auth::Base';
 use Mojo::URL;
 use Mojo::Parameters;
-use Mojolicious::Types qw();
 use Digest::SHA;
 
 has 'scope';
@@ -117,12 +116,7 @@ sub _ua {
 
 sub _response_to_hash {
     my ( $self, $res ) = @_;
-    my $types = Mojolicious::Types->new;
-    $types->type(json => ['application/json', 'text/javascript']);
-    my $exts = $types->detect( $res->headers->content_type );
-    return ( scalar(@$exts) && $exts->[0] eq 'json' )
-        ? $res->json
-        : Mojo::Parameters->new( $res->body )->to_hash;
+    return $res->json || Mojo::Parameters->new( $res->body )->to_hash
 }
 
 # default state param generator copy from Plack::Session::State
